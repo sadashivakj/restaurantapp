@@ -74,7 +74,7 @@ app.post("/api/new", function(req,res){
 
     console.log("table length: " + tables.length);
 
-  	if (tables.length <= 4) {
+  	if (tables.length < 5) {
       console.log("there");
       tables.push(newReserve);
       res.json(tables);
