@@ -72,15 +72,21 @@ app.post("/api/new", function(req,res){
 
   	console.log(newReserve);
 
-  	if (tables.length > 5) {
+    console.log("table length: " + tables.length);
 
-  		waitlist.push(newReserve);
-      res.json(waitlist);
+  	if (tables.length <= 4) {
+      console.log("there");
+      tables.push(newReserve);
+      res.json(tables);
+      console.log(tables);
+
+      
   	}
   	else {
-
-  		tables.push(newReserve);
-      res.json(tables);
+      console.log("here");
+      waitlist.push(newReserve);
+      res.json(waitlist);
+      console.log(waitlist);
   	}
 
   	// res.json(tables);

@@ -40,7 +40,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Current Reservations</div>
-					<div class="panel-body">
+					<div class="panel-body" id="currentRes">
 						
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Waiting List</div>
-					<div class="panel-body">
+					<div class="panel-body" id="waitList">
 						
 					</div>
 				</div>
@@ -69,10 +69,42 @@
 	        </div> 
     	</footer>
 
-<!-- 
+
     	<script type="text/javascript">
-    		$.get("/api/")
-    	</script> -->
+    		$.get("/api/tables", function(data){
+
+    			console.log(data);
+
+    			if (data != null) {
+
+    				for (var i = 0; i < data.length; i++) {
+
+    					var newDiv = $("<div id='resv'>").append("<h2>Id: " + data[i].customerID + "</h2>");
+
+    					$('#currentRes').append(newDiv);
+    				}
+
+    			}
+
+    		});
+
+    		$.get("/api/waitlist", function(data){
+
+    			console.log(data);
+
+    			if (data != null) {
+
+    				for (var i = 0; i < data.length; i++) {
+
+    					var newDiv = $("<div id='resv'>").append("<h2>Id: " + data[i].customerID + "</h2>");
+
+    					$('#waitList').append(newDiv);
+    				}
+
+    			}
+
+    		});
+    	</script>
 
 	</div>
 </body>
