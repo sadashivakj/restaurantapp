@@ -69,19 +69,15 @@ app.get("/reserve", function(req, res) {
 // View all JSON table objects
 app.get("/api/tables", function(req, res) {
 
-	for (var i = 0; i < tables.length; i++) {
-		res.json(tables[i]);
-	}
+	return res.json(tables);
 
 });
 
 // View all JSON waitlist objects
 app.get("/api/waitlist", function(req,res){
 
-	for (var i = 0; i <waitlist.length; i++) {
-		res.json(waitlist[i]);
-	}
-
+	return res.json(waitlist);
+	
 });
 
 // POST - get the new reservations from the client side
