@@ -1,28 +1,3 @@
-/*
-server.js
-- require express, body-parser, path
-- reservation array
-
-DONE - index.html
-- css - jumbotron
-- show waitlist object
-- show table link
-- view tables link
-- make reservation link
-
-tables.html
-- css - jumbotron
-- two panels - tables & wait list
-
-DONE - reservations.html
-- css - jumbotron
-- form
-- handles reservations, pass to server
-
-DONE - github repo
-heroku deployment
-*/
-
 // Dependencies
 // =============================================================
 
@@ -81,6 +56,28 @@ app.get("/api/waitlist", function(req,res){
 });
 
 // POST - get the new reservations from the client side
+app.post("/api/new", function(req,res){
+
+	var newReserve = req.body;
+
+  	newReserve.routeName = newReserve.customerId.replace(/\s+/g, "").toLowerCase();
+
+  	console.log(newReserve);
+
+  	if (tables.length > 5) {
+
+  		waitlist.push(newReserve);
+
+  	}
+  	else {
+
+  		tables.push(newReserve);
+
+  	}
+
+  	res.json(newReserve);
+
+});
 
 
 
