@@ -51,6 +51,21 @@ var waitlist = [];
 // Routing
 // =============================================================
 
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// View tables route
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Make reservation route
+app.get("/reservations", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservations.html"));
+});
+
 // Start listening
 // =============================================================
 app.listen(PORT, function(){
