@@ -62,9 +62,31 @@ app.get("/tables", function(req, res) {
 });
 
 // Make reservation route
-app.get("/reservations", function(req, res) {
+app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
+
+// View all JSON table objects
+app.get("/api/tables", function(req, res) {
+
+	for (var i = 0; i < tables.length; i++) {
+		res.json(tables[i]);
+	}
+
+});
+
+// View all JSON waitlist objects
+app.get("/api/waitlist", function(req,res){
+
+	for (var i = 0; i <waitlist.length; i++) {
+		res.json(waitlist[i]);
+	}
+
+});
+
+// POST - get the new reservations from the client side
+
+
 
 // Start listening
 // =============================================================
