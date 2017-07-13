@@ -55,6 +55,14 @@ app.get("/api/waitlist", function(req,res){
 
 });
 
+//clear both array objects and send the empty arrays back to html page when "Clear Table" link is clicked
+app.get("/clearTables", function(req,res){
+	tables = [];
+	waitlist = [];
+	res.json(tables);
+	res.json(waitlist);
+});
+
 // POST - get the new reservations from the client side
 app.post("/api/new", function(req,res){
 
