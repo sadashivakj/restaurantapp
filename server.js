@@ -27,7 +27,7 @@ heroku deployment
 // =============================================================
 
 var express = require("express");
-var bodyparser = require("body-parser");
+var bodyParser = require("body-parser");
 var path = require("path");
 
 // Sets up the Express App
@@ -69,15 +69,15 @@ app.get("/reserve", function(req, res) {
 // View all JSON table objects
 app.get("/api/tables", function(req, res) {
 
-	return res.json(tables);
+	res.json(tables);
 
 });
 
 // View all JSON waitlist objects
 app.get("/api/waitlist", function(req,res){
 
-	return res.json(waitlist);
-	
+	res.json(waitlist);
+
 });
 
 // POST - get the new reservations from the client side
