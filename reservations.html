@@ -44,13 +44,13 @@
 							</div>
 							
 							<div class="form-group">
-								<label for="phone">Password</label>
-								<input type="tel" class="form-control" id="phone" placeholder="999-999-9999">
+								<label for="phone">Phone Number</label>
+								<input type="input" class="form-control" id="phone" placeholder="999-999-9999">
 							</div>
 
 							<div class="form-group">
 								<label for="email">Email</label><br/>
-								<input type="email" class="form-control" id="exampleInputFile">
+								<input type="email" class="form-control" id="email">
 							</div>
 
 							<div class="form-group">
@@ -79,11 +79,13 @@
 		$("#add-btn").on("click", function(event) {
 			event.preventDefault();
 			var newTable = {
-			customerName: $("#name").val().trim(),
-			phoneNumber: $("#phone").val().trim(),
-			customerEmail: $("#email").val().trim(),
-			customerID: $("#id").val().trim()
+			customerName: $("#name").val(),
+			phoneNumber: $("#phone").val(),
+			customerEmail: $("#email").val(),
+			customerID: $("#id").val()
 			};
+
+			console.log(newTable);
 
 			// Question: What does this code do??
 			$.post("/api/new", newTable)

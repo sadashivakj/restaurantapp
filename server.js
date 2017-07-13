@@ -68,22 +68,23 @@ app.post("/api/new", function(req,res){
 
 	var newReserve = req.body;
 
-  	newReserve.routeName = newReserve.customerId.replace(/\s+/g, "").toLowerCase();
+  	// newReserve.routeName = newReserve.customerId.replace(/\s+/g, "").toLowerCase();
 
   	console.log(newReserve);
 
   	if (tables.length > 5) {
 
   		waitlist.push(newReserve);
-
+      res.json(waitlist);
   	}
   	else {
 
   		tables.push(newReserve);
-
+      res.json(tables);
   	}
 
-  	res.json(newReserve);
+  	// res.json(tables);
+   //  res.json(waitlist);
 
 });
 
